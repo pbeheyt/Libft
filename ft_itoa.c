@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:34:40 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/09 22:17:30 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/09 23:52:29 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,33 @@ char	*ft_itoa(int n)
 {
 	char			*str;
 	unsigned int	i;
-
-	i = nb_len(n);
-	str = malloc(sizeof(char) * i);
+	long			nl;
+	
+	nl = n;
+	i = nb_len(nl);
+	str = malloc(sizeof(char) * i + 1);
 	if (str == 0)
 		return (0);
 	str[i] = 0;
 	i--;
-	if (n < 0)
+	if (nl < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		nl = -nl;
 	}
-	while (n > 0)
+	while (nl > 0)
 	{
-		str[i] = (n % 10) + 48;
-		n = n / 10;
+		str[i] = (nl % 10) + 48;
+		nl = nl / 10;
 	i--;
 	}
 	return (str);
 }
-
+/*
 int	main(void)
 {
 	//char str[] = "0";
 	//printf("%d\n", nb_len(1526));
 	printf("%s\n", ft_itoa(__INT_MAX__));
 	return (0);
-}
+}*/
