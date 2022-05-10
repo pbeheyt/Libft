@@ -6,18 +6,20 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/04 21:33:50 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/10 23:53:38 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// char	ft_maj(unsigned int test, char c)
-// {
-// 	(void)test;
-// 	c = c - 32;
-// 	return (c);
-// }
+/*
+char	ft_maj(unsigned int test, char c)
+{
+	(void)test;
+	if (c == 32)
+		return (c);
+	c = c - 32;
+	return (c);
+}*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -44,7 +46,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 int main(void)
 {
 	char *test;
-	test = ft_strmapi("bonjour comment ca va\n", &ft_lol);
+	test = ft_strmapi("bonjour comment ca va\n", &ft_maj);
 	printf ("%s", test);
 	
 }*/
