@@ -6,28 +6,30 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:34:40 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/09 23:52:29 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/10 17:11:49 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nb_len(int n)
+int    nb_len(int n)
 {
-	long	len;
+    int    len;
+    long    nl;
 
-	len = 0;
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+    len = 1;
+    nl = n;
+    if (nl < 0)
+    {
+        nl = -nl;
+        len++;
+    }
+    while (nl >= 10)
+    {
+        nl /= 10;
+        len++;
+    }
+    return (len);
 }
 
 char	*ft_itoa(int n)
@@ -48,6 +50,8 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 		nl = -nl;
 	}
+	if (nl == 0)
+	 	str[i] = 48;
 	while (nl > 0)
 	{
 		str[i] = (nl % 10) + 48;
