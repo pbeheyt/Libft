@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:47:15 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/09 22:09:14 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/10 18:10:57 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 	while (str[j] != 0 && j < n)
 	{
 		i = 0;
-		while (str[j+ i] == to_find[i] && j + i < n)
+		while (str[j + i] == to_find[i] && j + i < n)
 		{
 			if (to_find[i + 1] == 0)
-				return (char *)&str[j];
+				return ((char *)&str[j]);
 		i++;
 		}
 	j++;
