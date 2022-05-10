@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:47:15 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/05 20:10:00 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/10 17:28:34 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_lstsize(t_list *lst)
 	tmp = lst;
 	while (tmp != 0)
 	{
-		tmp->next = tmp;
+		tmp = tmp->next;
 	i++;
 	}
 	return (i);
