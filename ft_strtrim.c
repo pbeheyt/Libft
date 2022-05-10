@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/04 18:04:22 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/10 22:56:29 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,28 @@ int	is_trim(char const *s, char c)
 	return (0);
 }
 
-size_t	count_trim(char const *s1, char const *set)
-{
-	size_t	count;
-	size_t	i;
-
-	count = 0;
-	i = 0;
-	while (s1[i] != 0)
-	{
-		if (is_trim(set, s1[i]))
-			count++;
-	i++;
-	}
-	return (count);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	size;
-	size_t	count;
 	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	count = count_trim(s1, set);
-	size = ft_strlen(s1) - count;
+	j = ft_strlen(s1) - 1;
+	i = 0;
+	while (is_trim(set, s1[i]) && i < j)
+		i++;
+	while (is_trim(set, s1[j]) && j > 0)
+		j--;
+	size = ++j - i;
 	str = malloc(sizeof(char) * (size + 1));
 	if (str == 0)
 		return (0);
-	i = 0;
-	while (*s1 != 0)
-	{
-		if (is_trim(set, *s1) == 0)
-			str[i++] = *s1;
-	s1++;
-	}
-	str[i] = 0;
+	k = 0;
+	while (k < size)
+			str[k++] = s1[i++];
+	str[k] = 0;
 	return (str);
 }
 /*
@@ -67,8 +53,8 @@ int	main(void)
 	char	*s1;
 	char	*s2;
 
-	s1 = "Saccclufffat";
-	s2 = "ca";
+	s1 = "lorem ipsum dolor sit amet";
+	s2 = "te";
 	printf("%s", ft_strtrim(s1, s2));
 	return (0);
 }*/
