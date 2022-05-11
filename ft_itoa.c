@@ -6,13 +6,13 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:34:40 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/10 18:15:00 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/12 00:12:02 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nb_len(int n)
+static int	nb_len(int n)
 {
 	int		len;
 	long	nl;

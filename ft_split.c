@@ -6,20 +6,20 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/09 17:57:40 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/12 01:16:00 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_del(char c, char s)
+static int	is_del(char c, char s)
 {
 	if (s == c || s == 0)
 		return (1);
 	return (0);
 }
 
-int	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -33,9 +33,19 @@ int	count_words(const char *s, char c)
 	i++;
 	}
 	return (words);
-}	
+}
 
-void	fill_tab(char **tab, char *s, char c, int words)
+static void	free_tab(char **tab)
+{	
+	int	i;
+
+	i = 0;
+	while (tab[i] != 0)
+		free(tab[i++]);
+	free (tab);
+}
+
+static int	fill_tab(char **tab, char *s, char c, int words)
 {
 	int		i;
 	int		j;
@@ -53,12 +63,15 @@ void	fill_tab(char **tab, char *s, char c, int words)
 		while (is_del(c, s[j + i]) == 0)
 			j++;
 		tab[l] = malloc(sizeof(char) * (j + 1));
+		if (tab[l] == 0)
+			return (-1);
 		k = 0;
 		while (k < j)
 			tab[l][k++] = s[i++];
 		tab[l][k] = 0;
 	l++;
 	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -71,7 +84,11 @@ char	**ft_split(char const *s, char c)
 	if (tab == 0)
 		return (0);
 	tab[words] = 0;
-	fill_tab(tab, (char *)s, c, words);
+	if (fill_tab(tab, (char *)s, c, words) == -1)
+	{
+		free_tab(tab);
+		return (0);
+	}
 	return (tab);
 }
 /*
@@ -83,7 +100,7 @@ int	main(void)
 	char	**tab;
 
 	charset = 'f';
-	str = "🙂f😉f🙁";
+	str = "🙂f😉f🙁f🙁f🙁f🙁";
 	tab = ft_split(str, charset);
 	i = 0;
 	while (tab[i] != 0)

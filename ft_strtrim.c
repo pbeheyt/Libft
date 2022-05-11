@@ -6,13 +6,13 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/11 18:02:04 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/12 00:15:43 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_trim(char const *s, char c)
+static int	is_trim(char const *s, char c)
 {
 	while (*s != 0)
 	{
