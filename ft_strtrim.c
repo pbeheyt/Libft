@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/10 22:56:29 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/11 18:02:04 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	j;
 	size_t	k;
 
-	j = ft_strlen(s1) - 1;
+	j = ft_strlen(s1);
 	i = 0;
 	while (is_trim(set, s1[i]) && i < j)
 		i++;
-	while (is_trim(set, s1[j]) && j > 0)
+	while (is_trim(set, s1[j - 1]) && j > i)
 		j--;
-	size = ++j - i;
+	size = j - i;
 	str = malloc(sizeof(char) * (size + 1));
 	if (str == 0)
 		return (0);
@@ -53,8 +53,8 @@ int	main(void)
 	char	*s1;
 	char	*s2;
 
-	s1 = "lorem ipsum dolor sit amet";
-	s2 = "te";
+	s1 = "   xxx   xxx";
+	s2 = " x";
 	printf("%s", ft_strtrim(s1, s2));
 	return (0);
 }*/
