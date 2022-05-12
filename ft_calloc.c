@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/12 19:25:13 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/12 22:16:26 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 	size_t	i;
 
-	/*Gestion overflow*/
 	i = nmemb * size;
 	if (nmemb != 0 && i / nmemb != size)
 		return (0);
