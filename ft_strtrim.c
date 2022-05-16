@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/12 00:15:43 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:56:55 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	j;
 	size_t	k;
 
+	if (s1 == 0)
+		return (0);
 	j = ft_strlen(s1);
 	i = 0;
 	while (is_trim(set, s1[i]) && i < j)

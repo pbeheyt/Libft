@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/12 01:16:00 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/16 22:04:16 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 	int		words;
 
+	if (s == 0)
+		return (0);
 	words = count_words(s, c);
 	tab = malloc(sizeof(char *) * (words + 1));
 	if (tab == 0)

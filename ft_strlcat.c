@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:47:15 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/10 20:24:21 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:58:13 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		return (src_len + size);
 	i = 0;
 	while (src[i] != 0 && dest_len < size - 1)
-	{
-		dest[dest_len] = src[i];
-	dest_len++;
-	i++;
-	}
+		dest[dest_len++] = src[i++];
 	dest[dest_len] = 0;
 	return (dest_len_init + src_len);
 }

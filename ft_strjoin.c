@@ -6,11 +6,23 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 12:05:31 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/12 22:16:56 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/16 22:01:47 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	ft_strlen_p(const char *str)
+{
+	int	i;
+
+	if (str == 0)
+		return (0);
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -20,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == 0 && s2 == 0)
 		return (0);
-	size = ft_strlen(s1) + ft_strlen(s2);
+	size = ft_strlen_p(s1) + ft_strlen_p(s2);
 	str = malloc(sizeof(char) * (size + 1));
 	if (str == 0)
 		return (0);

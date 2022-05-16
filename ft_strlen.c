@@ -6,7 +6,7 @@
 /*   By: pbeheyt <pbeheyt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:47:15 by pbeheyt           #+#    #+#             */
-/*   Updated: 2022/05/12 22:05:33 by pbeheyt          ###   ########.fr       */
+/*   Updated: 2022/05/16 20:46:16 by pbeheyt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *str)
 {
 	int	i;
 
-	if (str == 0)
-		return (0);
 	i = 0;
 	while (str[i] != 0)
 		i++;
